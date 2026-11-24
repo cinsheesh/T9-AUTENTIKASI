@@ -1,0 +1,60 @@
+@baseUrl = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzk1NTIyMjcxLCJleHAiOjE3OTU1MjIyNzZ9.p4OWsi3MJsI1Stn18tgS0BC4n5wZ-pUbx0qUfDNWXC8
+@tokenPalsu = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTk5LCJpYXQiOjE3OTU1MTk1NTUsImV4cCI6MTc5NTUyNjc1NX0.08zfF8fmLHq_ld8IAEbx4decKf6Ts2hpfXdMBlUdb2w
+### Percobaan 1 - Register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "email": "cindy@gmail.com",
+    "password": "cindy123"
+}
+
+### Percobaan 2 - Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "cindy@gmail.com",
+    "password": "cindy123"
+}
+
+### Percobaan 3 - GET Students Tanpa Token
+GET {{baseUrl}}/students
+
+### Percobaan 4 - POST Students Tanpa Token
+POST {{baseUrl}}/students
+Content-Type: application/json
+
+{
+    "nim": "230009999",
+    "name": "Budi",
+    "major": "Informatika",
+    "gpa": 3.5,
+    "birthdate": "2004-05-12"
+}
+
+### Percobaan 5 - POST Students Dengan Token
+POST {{baseUrl}}/students
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nim": "230009999",
+    "name": "Budi",
+    "major": "Informatika",
+    "gpa": 3.5,
+    "birthdate": "2004-05-12"
+}
+
+### Percobaan 6 - Token Dimodifikasi
+GET {{baseUrl}}/auth/saya
+Authorization: Bearer {{token}}x
+
+### Percobaan 7 - Token Expired
+GET {{baseUrl}}/auth/saya
+Authorization: Bearer {{token}}
+
+### Percobaan 8 - Payload Token Diubah
+GET {{baseUrl}}/auth/saya
+Authorization: Bearer {{tokenPalsu}}

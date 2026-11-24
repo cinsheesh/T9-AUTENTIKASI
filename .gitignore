@@ -1,0 +1,30 @@
+
+# Dependencies
+node_modules/
+
+# Generated Prisma Client
+generated/
+
+# Environment variables
+.env
+.env.*
+
+# Build output
+dist/
+
+# AI coding tools
+.agents/
+.claude/
+.windsurf/
+
+# API testing tools
+.postman/
+
+# Local Postman data
+postman/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
